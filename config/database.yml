@@ -27,7 +27,7 @@ test:
 production:
     adapter: postgresql
     encoding: unicode
-    database: db/costumes
+    database: 'emprendimiento-costumes :: database'
     pool: 5
-    username: costumes
-    password: costumes
+    username: adnktmpiacwvlg
+    password: Cu3jCelzTvcO7WNtZYhoghJ8Lp
