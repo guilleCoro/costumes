@@ -49,5 +49,3 @@ end
 gem 'spree', '3.0.4'
 gem 'spree_gateway', github: 'spree/spree_gateway', branch: '3-0-stable'
 gem 'spree_auth_devise', github: 'spree/spree_auth_devise', branch: '3-0-stable'
-
-gem 'spree_cloudinary', :git => 'git://github.com/chautoni/spree_cloudinary.git', :ref => 'a3d8f6d'
