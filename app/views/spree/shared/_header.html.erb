@@ -1,11 +1,11 @@
-<div id="spree-header" style="background:#921400 url(/assets/spree_header-198b754a34f1428c25f64303be8ac2aae84a076433af18ca55b65d7cbf1a0e13.jpg) center center;
+<div id="spree-header" style="background: url('/assets/header-01-3eb4e5cbb0173b0e2e6939ba8132811369d4ae25c62348a42375ad888e6f6bf7.png') center center;
         background-size:cover;
         margin-bottom:20px;">
-  <header id="header" data-hook>
+  <header id="header" data-hook style="padding-bottom: 0%">
     <div class="container">
       <div class="row">
-        <figure id="logo" class="col-md-4" data-hook>
-          <%= logo %>
+        <figure id="logo" class="col-md-4" style="margin-bottom: 0%" data-hook>
+          <a href="/"><%= image_tag("DisfracesYA2.png",:height => 100, :width => "auto") %></a>
         </figure>
         <%= render :partial => 'spree/shared/nav_bar' %>
       </div>
