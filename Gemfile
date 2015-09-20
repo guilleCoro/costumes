@@ -22,6 +22,9 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
+#https://spreecommerce.com/extensions/139-static-content
+gem 'spree_static_content', github: 'spree/spree_static_content', branch: '3-0-stable'
+
 gem 'pg', '0.18.2'
 gem 'rails_12factor', group: :production
 

@@ -1,0 +1,10 @@
+<% if page.foreign_link.present? %>
+    <ul class="nav navbar-nav" style=" font-weight: bold; background-color: #991B1E; margin-left: 5px" data-hook>
+    <li><%= link_to page.title, page.foreign_link, {:target => "_blank"} %></li>
+    </ul>
+<% else %>
+    <% page_uri = Rails.application.routes.named_routes[:spree].path.spec.to_s == '/' ? page.slug : Rails.application.routes.named_routes[:spree].path.spec.to_s + page.slug %>
+    <ul class="nav navbar-nav" style=" font-weight: bold; background-color: #991B1E; margin-left: 5px " data-hook>
+    <li class=<%= 'current' if (request.fullpath.gsub('//','/') == page_uri) %>><%= link_to page.title, page_uri  %></li>
+    </ul>
+<% end %>
