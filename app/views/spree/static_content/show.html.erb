@@ -12,33 +12,15 @@
     <% end -%>
 
     <% content_for :sidebar do %>
-        <% filters = @taxon ? @taxon.applicable_filters : [Spree::Core::ProductFilters.all_taxons] %>
-
-        <% unless filters.empty? %>
-            <%= form_tag '', :method => :get, :id => 'sidebar_products_search' do %>
-                <%= hidden_field_tag 'per_page', params[:per_page] %>
-                <% filters.each do |filter| %>
-                    <% labels = filter[:labels] || filter[:conds].map {|m,c| [m,m]} %>
-                    <% next if labels.empty? %>
-                    <div class="navigation" data-hook="navigation">
-                      <ul class="list-group">
-                        <% labels.each do |nm,val| %>
-                            <% label = "#{filter[:name]}_#{nm}".gsub(/\s+/,'_') %>
-                            <li class="list-group-item">
-                              <input type="checkbox"
-                                     id="<%= label %>"
-                                     name="search[<%= filter[:scope].to_s %>][]"
-                                     value="<%= val %>"
-                                     <%= params[:search] && params[:search][filter[:scope]] && params[:search][filter[:scope]].include?(val.to_s) ? "checked" : "" %> />
-                              <label class="nowrap" for="<%= label %>"> <%= nm %> </label>
-                            </li>
-                        <% end %>
-                      </ul>
-                    </div>
-                <% end %>
-                <%= submit_tag Spree.t(:search), :name => nil, :class => 'btn btn-primary' %>
-            <% end %>
-        <% end %>
+        <% max_level = Spree::Config[:max_level_in_taxons_menu] || 1 %>
+        <nav id="taxonomies" class="sidebar-item" data-hook>
+          <% Spree::Taxonomy.all.each do |taxonomy| %>
+              <% cache [I18n.locale, taxonomy, max_level, @taxon] do %>
+                  <h4 class='taxonomy-root'><%= Spree.t(:shop_by_taxonomy, :taxonomy => taxonomy.name) %></h4>
+                  <%= taxons_tree(taxonomy.root, @taxon, max_level) %>
+              <% end %>
+          <% end %>
+        </nav>
     <% end %>
 
     <h1><%= @page.title %></h1>
