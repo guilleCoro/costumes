@@ -21,9 +21,30 @@
                   <%= button_tag class: 'btn btn-primary', id: 'update-button' do %>
                       <%= Spree.t(:update) %>
                   <% end %>
-                  <%= button_tag class: 'btn btn-lg btn-success', id: 'checkout-link', name: 'checkout' do %>
+                  <%= button_tag class: 'btn btn-lg btn-success', type:"button", :data => {:toggle=>"modal", :target=>"#exitModal"} do %>
                       <%= Spree.t(:checkout) %>
                   <% end %>
+
+                  <div class="modal fade" id="exitModal" role="dialog" align="left">
+                    <div class="modal-dialog">
+
+                      <!-- Modal content-->
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal">&times;</button>
+                          <h4 class="modal-title">Estimado usuario</h4>
+                        </div>
+                        <div class="modal-body">
+                          <p>Lamentamos informarle que Disfracez YA se encuentra en una etapa de evaluación.<br>
+                          En breve estará disponible para que puedas encontrar los mejores disfraces.<br>
+                          <strong>¡Muchas Gracias!</strong></p>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                  </div>
+                  </div>
                 </div>
               </div>
             </div>
