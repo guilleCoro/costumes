@@ -21,7 +21,7 @@
                   <%= button_tag class: 'btn btn-primary', id: 'update-button' do %>
                       <%= Spree.t(:update) %>
                   <% end %>
-                  <%= button_tag class: 'btn btn-lg btn-success', type:"button", :data => {:toggle=>"modal", :target=>"#exitModal"} do %>
+                  <%= button_tag class: 'btn btn-lg btn-success',id:"checkout", type:"button", :data => {:toggle=>"modal", :target=>"#exitModal"} do %>
                       <%= Spree.t(:checkout) %>
                   <% end %>
 
@@ -62,3 +62,11 @@
       </div>
   <% end %>
 </div>
+
+
+<script type="text/javascript" charset="utf-8">
+    var checkoutbutton = document.getElementById('checkout');
+    addListener(checkoutbutton, 'click', function() {
+        ga('send', 'event', 'button', 'click', 'nav-buttons');
+    });
+</script>>
